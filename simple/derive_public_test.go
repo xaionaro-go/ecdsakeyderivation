@@ -17,7 +17,9 @@ func TestDerivePublic(t *testing.T) {
 	require.NoError(t, err)
 
 	derivedPubKey := DerivePublic(privKey.Public().(*ecdsa.PublicKey), derivationKey)
+
 	derivedPrivKey := DerivePrivate(privKey, derivationKey)
+	require.NotEqual(t, privKey, derivedPrivKey)
 
 	require.Equal(t,
 		derivedPrivKey.Public().(*ecdsa.PublicKey),

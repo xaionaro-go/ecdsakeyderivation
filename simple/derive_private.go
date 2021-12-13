@@ -17,7 +17,7 @@ func DerivePrivate(key *ecdsa.PrivateKey, derivationKeySeed []byte) *ecdsa.Priva
 	derivedKey.D = new(big.Int).Add(key.D, derivationKey)
 
 	// Derived public key
-	derivedKey.X, derivedKey.Y = derivedKey.Curve.ScalarBaseMult(derivedKey.D.Bytes())
+	derivedKey.X, derivedKey.Y = derivedKey.Curve.ScalarBaseMult(scalarToBytes(derivedKey.D))
 
 	return &derivedKey
 }

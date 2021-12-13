@@ -12,7 +12,7 @@ func DerivePublic(key *ecdsa.PublicKey, derivationKeySeed []byte) *ecdsa.PublicK
 
 	var addKey, derivedKey ecdsa.PublicKey
 	addKey.Curve, derivedKey.Curve = key.Curve, key.Curve
-	addKey.X, addKey.Y = derivedKey.Curve.ScalarBaseMult(bigIntToScalar(derivationKey))
+	addKey.X, addKey.Y = derivedKey.Curve.ScalarBaseMult(scalarToBytes(derivationKey))
 	derivedKey.X, derivedKey.Y = derivedKey.Curve.Add(key.X, key.Y, addKey.X, addKey.Y)
 	return &derivedKey
 

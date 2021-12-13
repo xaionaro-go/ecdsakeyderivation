@@ -26,6 +26,7 @@ func TestDerivePrivate(t *testing.T) {
 	}
 
 	derivedPrivKey := DerivePrivate(privKey, derivationKey)
+	require.NotEqual(t, privKey, derivedPrivKey)
 
 	signature, err := ecdsa.SignASN1(randReader, derivedPrivKey, message)
 	require.NoError(t, err)

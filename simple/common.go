@@ -10,6 +10,6 @@ func calcDerivationKey(derivationKeySeed []byte) *big.Int {
 	return new(big.Int).SetBytes(b[:])
 }
 
-func bigIntToScalar(i *big.Int) []byte {
+func scalarToBytes(i *big.Int) []byte {
 	return i.Bytes()
 }
