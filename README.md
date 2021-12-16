@@ -2,6 +2,8 @@
 
 WARNING! Do not use this code in production. It was never validated by a real specialist in cryptography.
 
+Also be aware, knowing the child private key and the derivation key is enough to easily restore the parent private key.
+
 # Simple
 
 It is a demonstration of how to implement a simple key derivation algorithm for public keys without knowledge of private keys. This works for any asymmetric crypto algorithm with distributive property enabled for public key. The idea is very simple:
